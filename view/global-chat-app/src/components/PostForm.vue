@@ -48,16 +48,38 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
-input, textarea {
+
+input,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
   padding: 10px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
+
 button {
+  background-color: #4CAF50;
+  color: #ffffff;
   padding: 10px;
-  background: #4CAF50;
-  color: white;
+  width: 100%;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+
+}
+
+button:hover {
+  background-color: #45a049;
 }
 </style>

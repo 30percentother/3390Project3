@@ -2,6 +2,7 @@
   "name": "global-chat-app",
   "version": "0.0.1",
   "scripts": {
+    "start": "node index.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

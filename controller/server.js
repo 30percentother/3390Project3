@@ -3,7 +3,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const { addMessage, getMessages } = require('../Model/db')
+const { addMessage, getMessages, addAnswer, getAnswers } = require('../Model/db')
 
 const app = express()
 const PORT = 3000
@@ -35,6 +35,31 @@ app.post('/addMessage', async (req, res) => {
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Failed to add message' })
+  }
+})
+
+// Get all Daily Question answers
+app.get('/getAnswers', async (req, res) => {
+  try {
+    const answers = await getAnswers()
+    res.json(answers)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: 'Failed to fetch answers' })
+  }
+})
+
+// Add a Daily Question answer
+app.post('/addAnswer', async (req, res) => {
+  try {
+    const { name, answer } = req.body
+    const date = new Date().toLocaleString()
+
+    await addAnswer({ name, answer, date })
+    res.json({ status: 'Answer saved' })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: 'Failed to add answer' })
   }
 })
 

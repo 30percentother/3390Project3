@@ -23,6 +23,15 @@ const init = () => {
       temp TEXT
     )
   `)
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS answers (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      answer TEXT NOT NULL,
+      date TEXT NOT NULL
+    )
+  `)
 }
 init()
 
@@ -47,4 +56,25 @@ function getMessages() {
   })
 }
 
-module.exports = { addMessage, getMessages }
+// Save a daily answer to the database
+function addAnswer({ name, answer, date }) {
+  return new Promise((resolve, reject) => {
+    const sql = `INSERT INTO answers (name, answer, date) VALUES (?, ?, ?)`
+    db.run(sql, [name, answer, date], function (err) {
+      if (err) reject(err)
+      else resolve()
+    })
+  })
+}
+
+// Get all daily answers from the database
+function getAnswers() {
+  return new Promise((resolve, reject) => {
+    db.all('SELECT * FROM answers ORDER BY id DESC', [], (err, rows) => {
+      if (err) reject(err)
+      else resolve(rows)
+    })
+  })
+}
+
+module.exports = { addMessage, getMessages, addAnswer, getAnswers }
