@@ -290,6 +290,7 @@ body.dark-mode .reply-toggle:hover {
   color: #333;
   height: 50px;
   max-height: 20px;
+  background-color: var(--reply-textbox-bg);
 }
 
 body.dark-mode .hide-replies {

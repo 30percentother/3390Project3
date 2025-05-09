@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node controller/server.js",
-"client": "npm run dev --prefix view/global-chat-app -- --open"
-  },
+"scripts": {
+  "start": "concurrently \"npm run server\" \"npm run client\"",
+  "server": "node controller/server.js",
+  "client": "npm run dev --prefix view/global-chat-app -- --open",
+  "install-client": "npm install --prefix view/global-chat-app"
+}
+,
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^2.2.0",

@@ -147,6 +147,7 @@ body.dark-mode {
   color: #eeeeee;
   --bubble-bg: #3b3b3b;
   --reply-box-bg: #2c2c2c;
+  --reply-textbox-bg:#3b3b3b;
 }
 
 body.dark-mode :is(
@@ -193,7 +194,7 @@ body.dark-mode .card {
 }
 
 body.dark-mode .action {
-  color: #66b2ff !important;
+  color:rgb(248, 250, 252) !important;
 }
 
 body.dark-mode .delete {
@@ -203,12 +204,16 @@ body.dark-mode .delete {
 
 
 body.dark-mode button:hover {
-  background-color: #5ea3e4 !important;
+  background-color:rgb(194, 195, 197) !important;
 }
 
 body.dark-mode .login-container {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .dropdown button {
+  color: white !important;
 }
 
 </style>
